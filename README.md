@@ -9,30 +9,77 @@
 > * If ISP service is suspended due to modified ONT connected, you may be subject to punishment under the laws of your country.
 > * The creator of this content assumes no responsibility for any problems that may arise from this content.
 
-# CA8271 / CA8289 SoC ONT
-| Device | Form | SoC | PON | Mode | Kernel | OEM | Mgmt IP | Mgmt |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [CIG XG-99S](https://www.cigtech.com/product_portfolio/xg-99x-3/) | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | - | 192.168.100.1 | UART/Telnet |
-| [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SFP+ | CA8271S | 10GE | SFU EPON | Linux-4.4.198.cig-R1.0.2.8 | - | 192.168.0.1 | UART/Telnet/SSH |
-| [ECIN EN-XGSFPP-OMAC-V1](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***End of Sales*** | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.140.saturn-sfpplus-R1 | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
-| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | CIG XG-99S | 192.168.100.1 | UART/Telnet |
-| [Hisense LTF-7263-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | CA8271S | 10GE | SFU EPON | Linux-4.4.198.saturn-sfpplus-r1 | - | 192.168.0.1 | UART/SSH/Web |
-| [Hisense LTF-7267-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | CA8271S | XGS, XG | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | - | 192.168.0.1 | UART/SSH/Web |
-| NATYWISH LTF-7267-BH+ | SFP+ | CA8271S | XGS | PPTP | Linux-4.14.172.saturn-sfpplus-r1 | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
-| XGS800E | SFP+ | CA8271S | XGS, XG | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
-| [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | CA8271A | XGS | PPTP | Linux-4.4.140.saturn-sfu-R1.0.0 | - | 192.168.0.1 | UART/Telnet |
-| Frontier FOX222 | ONT | CA8271A | XGS | PPTP | Linux-4.4.140.saturn-sfu-R1.0.0 | CIG XG-99M | 192.168.188.1 | UART |
-| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | Linux-4.14.172.saturn2-sfu-r2.1 | - | 192.168.1.1 | UART |
-| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | Linux-4.14.172.saturn2-sfu-r2.1 | - | 192.168.1.1 | UART |
-| HOSECOM X67S | ONT | RTL9615C (CA8289 Customize) | XGS, XG | PPTP/VEIP | RTK arm64 kernel 5.10.70 | - | 192.168.1.1 | UART/Telnet/SSH/Web |
-| NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON<br>(SIEPON-C) | Poky (Yocto Project Reference Distro)/4.14/venus-eng-emmc | - | 192.168.0.1 | UART/Telnet/Web |
-| [Nokia XS-2426X-A](https://device.report/m/0d8026c89c07e6bfca963368c018fd8b4ca689ef2bcf32f56794b3ab2b78b119/) | HGU | CA8289 | XGS | PPTP/VEIP | ? | - | ? | Web |
-| [Nokia XS-2426G-B](https://fcc.report/FCC-ID/2ADZRXS2426GB/5593067.pdf) | HGU | CA8289 | XGS | PPTP/VEIP | ? | - | ? | Web |
-| [Nokia WiFi Beacon G6](https://device.report/m/89a7e8e644b326c7030274954d16a3452c2f5c2d0792383bb53eae670b3cae78/) | AP | CA8289 | - | - | ? | - | ? | UART |
-| [NTT XG-100NE](https://web116.jp/shop/hikari_r/xg_100ne/xg_100ne_00.html) | Router | CA7774 | - | - | Poky (Yocto Project Reference Distro)/4.4/g3-eng-emmc | - | 192.168.1.1 | Telnet/Web/RCE |
+# EPON ONT
+10G EPON can be broadly categorized into the following three standards defined by IEEE 1904.1:
+* SIEPON-A ( CableLabs DPoE-OAM )
+  Used by ISPs in the United States, Europe, Japan (excluding NTT), and many other countries worldwide.
+* SIEPON-B ( NTT-OAM )
+  Used exclusively by NTT East and NTT West in Japan.
+* SIEPON-C ( ChinaTelecom-OAM )
+  Used only by ISPs within China.
 
+Most commercially available ONTs are manufactured in China and support only SIEPON-C.
+However, by flashing custom firmware onto these ONTs, it is possible to enable support for SIEPON-A.
+
+## CA8271S Device's ( Stick )
+| Device | Default EPON | Mgmt IP | SIEPON-A Farm Support |
+| ------ | ------------ | ------- |------------- |
+| [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | SIEPON-C | 192.168.0.1 | ✅ |
+| [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SIEPON-C | 192.168.0.1 | ❌ |
 > [!TIP]
-> The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+> * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+> * Hisense LTF-7263-BH+ and Hisense LTF-7267-BH+ (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+
+## CA8271 / CA8289 EPON Device's
+All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
+| Device | EPON | SoC |
+| ------ | ------------ | --- |
+| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271 OEM) |
+| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271 OEM) |
+| NEC BL3000HM | SIEPON-A | CA8289 |
+| Sumitomo FTE7263R | SIEPON-A | CA8271A |
+
+## Other EPON Device's
+All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
+| Device | EPON | SoC |
+| ------ | ---- | --- |
+| NEC 03XS1 | SIEPON-A | BCM55030 |
+| NEC BL4000HM | SIEPON-A | Broadcom ? |
+| DASAN H710 | SIEPON-A | BCM55030 |
+| NOKIA XE-040G-A | SIEPON-A | BCM55030 |
+| NOKIA NKFN11AEL | SIEPON-A | Broadcom ? |
+| Free/Iliad F-MDCONU3A (v1) | SIEPON-A | BCM55030 |
+| Free/Iliad F-MDCONU5A (v2) | SIEPON-A | BCM55030 |
+| Free/Iliad P-MDONU4B (pro) | SIEPON-A | ? |
+
+# GPON ONT
+XG-PON / XGS-PON mainly use the following two transmission modes:
+* PPTP
+* VEIP
+
+While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not support VEIP.
+
+## CA8271S Device's ( Stick )
+| Device | GPON | Mgmt IP | Info |
+| ------ | ---- | ------- | ---- |
+| CIG XG-99S | PPTP | 192.168.100.1 | |
+| ECIN EN-XGSFPP-OMAC-V1 | PPTP |192.168.100.1 | CIG XG-99S OEM |
+| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | PPTP |192.168.100.1 | CIG XG-99S OEM |
+| Hisense LTF-7263-BH+ | PPTP | 192.168.0.1 | |
+| NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Farm |
+| XGS800E | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
+> [!TIP]
+> * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+> * Hisense LTF-7263-BH+ and Hisense LTF-7267-BH+ (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+
+## CA8271 / CA8289 GPON Device's
+| Device | GPON | Mgmt IP | SoC | Info |
+| ------ | ---- | ------- | --- | ---- |
+| CIG XG-99M | PPTP | 192.168.0.1 | CA8271A | |
+| Frontier FOX222 | PPTP | 192.168.188.1 | CA8271A | CIG XG-99M OEM |
+| HOSECOM X67S | PPTP VEIP | 192.168.1.1 | RTL9615C | |
+| Nokia XS-2426X-A | PPTP VEIP | | CA8289 | |
+| Nokia XS-2426G-B | PPTP VEIP | | CA8289 | |
 
 # Gide, Info
 1. Shell access
@@ -48,6 +95,7 @@
     * [Switch between XGS and 10GE](/XG-XE_Switch/)
     * [UART pin](/doc/UART.md)
 4. Device & SoC info
+    * [CA8271 / CA8289 ONT list](/doc/ONT_List.md)
     * [ONT devices Picture](/ONT_Picture/README.md)
     * [Device-tree Source code](/dts/)
 
