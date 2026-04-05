@@ -82,19 +82,21 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | Nokia XS-2426G-B | PPTP VEIP | | CA8289 | |
 
 # Gide, Info
-1. Shell access
+1. SIEPON-A Custom Farmware
+    * [Quick Start](/siepon_a/README.md)
+2. Shell access
     * [How to get root CLI & root Shell](/doc/rootShell.md)
     * [ONT Login Password](/doc/Password.md)
     * [emulate CIG ONT in QEMU](/emulate_CIG/README.md)
-2. Configration
+3. Configration
     * [ONT scfg.txt files (CORTINA SoC Configuration file)](/doc/scfg_files.md)
       * [default scfg.txt dump](/default_scfg)
     * [XG-99x Config Command](/doc/XG-99x_Config.md)
-3. Firmware Modify & Reaper
+4. Firmware Modify & Reaper
     * [Dump images & Bricked Stick Repair](/mtd/README.md)
     * [Switch between XGS and 10GE](/XG-XE_Switch/)
     * [UART pin](/doc/UART.md)
-4. Device & SoC info
+5. Device & SoC info
     * [CA8271 / CA8289 ONT list](/doc/ONT_List.md)
     * [ONT devices Picture](/ONT_Picture/README.md)
     * [Device-tree Source code](/dts/)
