@@ -27,6 +27,7 @@ Use a USB-to-UART adapter and connect as follows:
 * TXD : Pin 1 (input)
 * RXD : Pin 2 (output)
 * GND : pin 4 or a ground via (through-hole)
+* Bps : `57600 bps`
 
 ![BL3000HM Label](/Picture/kddi_mac/H03XS2_UART.JPG)
 
