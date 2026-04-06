@@ -43,7 +43,8 @@ All SIEPON-A ONTs in the table below can be replaced with stick-type custom firm
 All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
 | Device | EPON | SoC |
 | ------ | ---- | --- |
-| NEC 03XS1 | SIEPON-A | BCM55030 |
+| NEC H03XS1 | SIEPON-A | BCM55030 |
+| NEC H03XS2 | SIEPON-A | BCM55030 |
 | NEC BL4000HM | SIEPON-A | Broadcom ? |
 | DASAN H710 | SIEPON-A | BCM55030 |
 | NOKIA XE-040G-A | SIEPON-A | BCM55030 |
@@ -84,6 +85,9 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 # Gide, Info
 1. SIEPON-A Custom Farmware
     * [Quick Start](/siepon_a/README.md)
+    * [SIEPON-A Firmware Configuration](/siepon_a/config.md)
+    * [au-hikari (Japan) ONT MAC Address](/siepon_a/kddi.md)
+    * [sample ONT TLV List (pdf)](/siepon_a/TLV_LIST.pdf)
 2. Shell access
     * [How to get root CLI & root Shell](/doc/rootShell.md)
     * [ONT Login Password](/doc/Password.md)
@@ -138,6 +142,12 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 * AZORES WAS-110 (MxL PRX126)
     The WAS-110 hacking was carried out by 8311 community.
     * **[PON dot WIKI](https://pon.wiki/category/was-110/)**
+* CableLabs DPoE 1.0
+    * **[DPoE OAM Extensions Specification
+Version C01 (newest version)](https://www.cablelabs.com/specifications/dpoe-oam-extensions-specification)**
+* CableLabs DPoE 2.0
+    * **[DPoE OAM Extensions Specification
+Version I15 (newest version)](https://www.cablelabs.com/specifications/DPoE-SP-OAMv2.0)**
 
 # Collaborator
 Some information has been created with the help of :
