@@ -13,6 +13,17 @@ EPON MAC Address : `11:22:33:AA:BB:CD`
 
 ![BL3000HM Label](/Picture/kddi_mac/BL3k_MAC.JPG)
 
+## BL4000HM
+If you are using a BL4000HM as the ONT, the EPON MAC address can be derived from the label on the back of the device.
+
+The EPON MAC address is equal to the "MACアドレス(WAN)" + `1`.
+
+Example:
+MACアドレス(WAN) : `11:22:33:AA:BB:CC`
+EPON MAC Address : `11:22:33:AA:BB:CD`
+
+![BL4000HM Label](/Picture/kddi_mac/BL4k_MAC.JPG)
+
 ## H03XS1 / H03XS2
 If you are using an H03XS1 / H03XS2, you need to access the internal UART interface to obtain the MAC address.
 

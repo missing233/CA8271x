@@ -45,7 +45,7 @@ All SIEPON-A ONTs in the table below can be replaced with stick-type custom firm
 | ------ | ---- | --- |
 | NEC H03XS1 | SIEPON-A | BCM55030 |
 | NEC H03XS2 | SIEPON-A | BCM55030 |
-| NEC BL4000HM | SIEPON-A | Broadcom ? |
+| Sercomm BL4000HM | SIEPON-A | BCM68572 |
 | DASAN H710 | SIEPON-A | BCM55030 |
 | NOKIA XE-040G-A | SIEPON-A | BCM55030 |
 | NOKIA NKFN11AEL | SIEPON-A | Broadcom ? |
